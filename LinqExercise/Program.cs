@@ -108,7 +108,13 @@ namespace LinqExercise
             newEmployee.Age = 20;
             newEmployee.YearsOfExperience = 2;
             
-            employees.Append(newEmployee).ToList().ForEach(x => Console.WriteLine(x.FullName));
+            employees = employees.Concat(new[] { newEmployee }).ToList();
+            foreach (var employee in employees)
+            {
+                Console.WriteLine(employee.FullName);
+            }
+            
+            
 
 
             Console.WriteLine();
